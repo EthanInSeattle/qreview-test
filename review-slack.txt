@@ -1,0 +1,57 @@
+Task Description:
+You will act as a reviwer in this test. 
+Specifically, you will receivce a pull request from a contributor with their answer to a question. 
+You will then "review" their answer and communicate to them for code changes. 
+Your end goal is to make the submitted code look similar to the "standard answer" through communication.
+Similar means the two answer should be algorithmatically same. 
+i.e. same data structure, same algorithm, identical asymptotic runtime complexity, etc. 
+You are not allowed to directly tell the contributor answer. 
+Instead, you should first understand their code, ask for their motivation, and provide your advice
+on how to make the code more similar to the "standard answer".
+
+Communication Approach:
+You will receivce the pull request on Slack via invites from Qreview. You should strictly limit your communicaton
+on Slack with the Qreview App. You should use Qreview to document important parts of your discussion and progress 
+of the pull request E.g. comments, request changes, approve etc.
+
+
+Question 
+// TODO: 
+//     Merge two sorted arrays.
+//     arr1 and arr2 are two sorted arrays and are passed in as parameters.
+//     Merge arr1[0..n1-1] and arr2[0..n2-1] and return a sorted array [0..n1+n2-1] 
+public static void mergeArrays(int[] arr1, int[] arr2) 
+{ 
+} 
+
+"Standard" Answer
+public static void mergeArrays(int[] arr1, int[] arr2) 
+{ 
+    int i = 0, j = 0, k = 0; 
+    int n1 = arr1.length;
+    int n2 = arr2.length;
+    int[] arr3 = new int[n1+n2];
+        // Traverse both array 
+        while (i<n1 && j <n2) 
+        { 
+            // Check if current element of first 
+            // array is smaller than current element 
+            // of second array. If yes, store first 
+            // array element and increment first array 
+            // index. Otherwise do same with second array 
+            if (arr1[i] < arr2[j]) 
+                arr3[k++] = arr1[i++]; 
+            else
+                arr3[k++] = arr2[j++]; 
+        } 
+      
+        // Store remaining elements of first array 
+        while (i < n1) 
+            arr3[k++] = arr1[i++]; 
+      
+        // Store remaining elements of second array 
+        while (j < n2) 
+            arr3[k++] = arr2[j++]; 
+    return arr3;
+
+} 
