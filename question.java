@@ -47,8 +47,10 @@ class MergeTwoSorted
         while (i1 + i2 < len) {
             if (i1 == arr1.length) {
                 arr3[i1 + i2] = arr2[i2];
+                i2++;
             } else if (i2 == arr2.length) {
                 arr3[i1 + i2] = arr1[i1];
+                i1++;
             } else if (arr1[i1] < arr2[i2]) {
                 arr3[i1 + i2] = arr1[i1];
                 i1++;
