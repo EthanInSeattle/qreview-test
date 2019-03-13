@@ -37,9 +37,28 @@ class MergeTwoSorted
     //     Merge two sorted arrays.
     //     arr1 and arr2 are two sorted arrays and are passed in as parameters.
     //     Merge arr1[0..n1-1] and arr2[0..n2-1] and return a sorted array [0..n1+n2-1] 
-    public static void mergeArrays(int[] arr1, int[] arr2) 
+    public static int[] mergeArrays(int[] arr1, int[] arr2) 
     { 
-      return;
+        int len = arr1.length + arr2.length;
+        int[] arr3 = new int[len];
+
+        i1 = 0;
+        i2 = 0;
+        while (i1 + i2 < len) {
+            if (i1 == arr1.length) {
+                arr3[i1 + i2] = arr2[i2];
+            } else if (i2 == arr2.length) {
+                arr3[i1 + i2] = arr1[i1];
+            } else if (arr1[i1] < arr2[i2]) {
+                arr3[i1 + i2] = arr1[i1];
+                i1++;
+            } else {
+                arr3[i1 + i2] = arr2[i2];
+                i2++;
+            }
+        }
+
+        return arr3;
     } 
       
     public static void main (String[] args)  
@@ -50,7 +69,7 @@ class MergeTwoSorted
         int[] arr3 = mergeArrays(arr1, arr2); 
       
         System.out.println("Array after merging"); 
-        for (int i=0; i < n1+n2; i++) 
+        for (int i=0; i < arr3.length; i++) 
             System.out.print(arr3[i] + " "); 
     } 
 } 
